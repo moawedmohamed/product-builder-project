@@ -40,9 +40,9 @@ const App = () => {
   const closeModal = () => setIsOpen(false);
   const openModal = () => setIsOpen(true);
   const closeEditModal = () => setIsOpenEditModal(false);
-  const openEditModal = setIsOpenEditModal(true)
+  const openEditModal = useCallback(() => setIsOpenEditModal(true),[])
   const closeConfirmModal = () => setIsOpenConfirmModal(false);
-  const openConfirmModal =  setIsOpenConfirmModal(true)
+  const openConfirmModal = useCallback(() => setIsOpenConfirmModal(true),[])
   const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
   const { value, name } = event.target;
 
