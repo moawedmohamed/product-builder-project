@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, ReactNode,meme } from "react";
+import { Fragment, ReactNode, memo } from "react";
 
 interface IProps {
   isOpen: boolean;
@@ -68,4 +68,4 @@ const Modal = ({
   );
 };
 
-export default meme(Modal);
+export default memo(Modal);

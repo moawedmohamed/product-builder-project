@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode,meme } from "react";
+import { ButtonHTMLAttributes, ReactNode, memo } from "react";
 
 interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -6,15 +6,19 @@ interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: "w-full" | "w-fit";
 }
 
-const Button = ({ children, className, width = "w-full", ...rest }: IProps) => {
-  return (
-    <button
-      className={`${className} ${width} rounded-lg text-white px-3 py-3 duration-200 font-medium`}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-};
+// Named component (required for Fast Refresh)
+const Button = memo(
+  ({ children, className, width = "w-full", ...rest }: IProps) => {
+    return (
+      <button
+        className={`${className} ${width} rounded-lg text-white px-3 py-3 duration-200 font-medium`}
+        {...rest}
+      >
+        {children}
+      </button>
+    );
+  }
+);
 
-export default meme(Button);
+// Default export (optional, but keep the named export)
+export default Button;
